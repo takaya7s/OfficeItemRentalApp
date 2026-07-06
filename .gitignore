@@ -1,4 +1,36 @@
+# Visual Studio
 .vs/
-bin/
-obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build outputs
+**/bin/
+**/obj/
+
+# NuGet
+packages/
+*.nupkg
+*.snupkg
+project.assets.json
+project.nuget.cache
+
+# Test outputs
+TestResults/
+coverage/
+*.coverage
+*.trx
+
+# Application runtime data
 data/
+*.json.tmp
+
+# Local work files
+.nuget-temp/
+*.log
+*.tmp
+
+# OS files
+Thumbs.db
+Desktop.ini

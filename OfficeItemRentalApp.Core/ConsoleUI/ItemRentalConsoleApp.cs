@@ -5,7 +5,7 @@ using OfficeItemRentalApp.Services;
 
 namespace OfficeItemRentalApp.ConsoleUI
 {
-    internal sealed class ItemRentalConsoleApp
+    public sealed class ItemRentalConsoleApp
     {
         private readonly ItemRentalService rentalService;
 

@@ -7,7 +7,7 @@ using OfficeItemRentalApp.Models;
 
 namespace OfficeItemRentalApp.Services
 {
-    internal sealed class JsonDataStore
+    public sealed class JsonDataStore
     {
         private readonly JsonSerializerOptions options;
         private readonly string path;

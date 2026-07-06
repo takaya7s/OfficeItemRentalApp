@@ -5,7 +5,7 @@ using OfficeItemRentalApp.Models;
 
 namespace OfficeItemRentalApp.Services
 {
-    internal sealed class ItemRentalService
+    public sealed class ItemRentalService
     {
         private readonly RentalDatabase database;
         private readonly JsonDataStore store;
@@ -157,7 +157,7 @@ namespace OfficeItemRentalApp.Services
         }
     }
 
-    internal sealed class ItemListItem
+    public sealed class ItemListItem
     {
         public ItemListItem(Item item, RentalRecord currentRental, bool isOverdue)
         {
@@ -173,7 +173,7 @@ namespace OfficeItemRentalApp.Services
         public bool IsOverdue { get; private set; }
     }
 
-    internal sealed class BorrowerRentalItem
+    public sealed class BorrowerRentalItem
     {
         public BorrowerRentalItem(Item item, RentalRecord rental, bool isOverdue)
         {
@@ -189,13 +189,13 @@ namespace OfficeItemRentalApp.Services
         public bool IsOverdue { get; private set; }
     }
 
-    internal enum RegisterItemStatus
+    public enum RegisterItemStatus
     {
         Success,
         DuplicateId
     }
 
-    internal sealed class RegisterItemResult
+    public sealed class RegisterItemResult
     {
         public RegisterItemResult(RegisterItemStatus status)
         {
@@ -205,7 +205,7 @@ namespace OfficeItemRentalApp.Services
         public RegisterItemStatus Status { get; private set; }
     }
 
-    internal enum RentItemStatus
+    public enum RentItemStatus
     {
         Success,
         ItemNotFound,
@@ -213,7 +213,7 @@ namespace OfficeItemRentalApp.Services
         DueDateBeforeRentalDate
     }
 
-    internal sealed class RentItemResult
+    public sealed class RentItemResult
     {
         public RentItemResult(RentItemStatus status)
             : this(status, null)
@@ -231,7 +231,7 @@ namespace OfficeItemRentalApp.Services
         public RentalRecord ExistingRental { get; private set; }
     }
 
-    internal enum ReturnItemStatus
+    public enum ReturnItemStatus
     {
         Success,
         ItemNotFound,
@@ -239,7 +239,7 @@ namespace OfficeItemRentalApp.Services
         ReturnDateBeforeRentalDate
     }
 
-    internal sealed class ReturnItemResult
+    public sealed class ReturnItemResult
     {
         public ReturnItemResult(ReturnItemStatus status)
             : this(status, null, null)
@@ -260,13 +260,13 @@ namespace OfficeItemRentalApp.Services
         public RentalRecord Rental { get; private set; }
     }
 
-    internal enum ItemHistoryStatus
+    public enum ItemHistoryStatus
     {
         Success,
         ItemNotFound
     }
 
-    internal sealed class ItemHistoryResult
+    public sealed class ItemHistoryResult
     {
         public ItemHistoryResult(ItemHistoryStatus status, Item item, IReadOnlyList<RentalRecord> rentals)
         {

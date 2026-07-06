@@ -4,7 +4,7 @@ using System.Text;
 using OfficeItemRentalApp.ConsoleUI;
 using OfficeItemRentalApp.Services;
 
-namespace OfficeItemRentalApp
+namespace OfficeItemRentalApp.CLI
 {
     internal static class Program
     {

@@ -4,7 +4,7 @@ using OfficeItemRentalApp.Models;
 
 namespace OfficeItemRentalApp.ConsoleUI
 {
-    internal static class ConsoleInput
+    public static class ConsoleInput
     {
         public static string ReadRequiredText(string prompt)
         {

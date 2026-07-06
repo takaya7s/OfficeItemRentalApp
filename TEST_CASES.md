@@ -2,7 +2,7 @@
 
 ## 対象
 
-- アプリ: `OfficeItemRentalApp`
+- アプリ: `OfficeItemRentalApp.CLI`
 - 実行環境: C# 7.3 / .NET Framework 4.8
 - 保存方式: `System.Text.Json` による JSON ファイル保存
 - 保存先: 実行時のカレントディレクトリ配下 `data/item-rentals.json`
@@ -13,13 +13,13 @@
 
 ```powershell
 cd E:\dev\Codex\work\OfficeItemRentalApp
-dotnet restore
-dotnet build
+dotnet restore .\OfficeItemRentalApp.CLI\OfficeItemRentalApp.CLI.csproj --configfile NuGet.config
+dotnet build OfficeItemRentalApp.sln --no-restore -m:1 -p:UseSharedCompilation=false
 ```
 
 期待結果:
 
-- `bin\Debug\net48\OfficeItemRentalApp.exe` が生成される
+- `OfficeItemRentalApp.CLI\bin\Debug\net48\OfficeItemRentalApp.CLI.exe` が生成される
 - ビルドエラーが発生しない
 
 ### 2. テスト用フォルダから起動する
@@ -27,7 +27,7 @@ dotnet build
 アプリはカレントディレクトリ配下にデータを保存するため、テスト時は専用フォルダから起動すると既存データに影響しません。
 
 ```powershell
-$App = "E:\dev\Codex\work\OfficeItemRentalApp\bin\Debug\net48\OfficeItemRentalApp.exe"
+$App = "E:\dev\Codex\work\OfficeItemRentalApp\OfficeItemRentalApp.CLI\bin\Debug\net48\OfficeItemRentalApp.CLI.exe"
 $Work = Join-Path $env:TEMP "OfficeItemRentalAppManualTest"
 New-Item -ItemType Directory -Force $Work | Out-Null
 Push-Location $Work
