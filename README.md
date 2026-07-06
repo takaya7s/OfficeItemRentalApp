@@ -17,10 +17,6 @@
 
 1. ソリューションフォルダに移動します。
 
-   ```powershell
-   cd E:\dev\Codex\work\OfficeItemRentalApp
-   ```
-
 2. NuGet パッケージを復元してビルドします。
 
    ```powershell
