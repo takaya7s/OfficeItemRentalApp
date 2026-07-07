@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 using System.Text;
-using OfficeItemRentalApp.ConsoleUI;
+using OfficeItemRentalApp.CLI.ConsoleUI;
 using OfficeItemRentalApp.Services;
 
 namespace OfficeItemRentalApp.CLI

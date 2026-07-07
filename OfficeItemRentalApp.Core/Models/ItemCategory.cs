@@ -7,7 +7,7 @@ namespace OfficeItemRentalApp.Models
         Other
     }
 
-    internal static class ItemCategoryExtensions
+    public static class ItemCategoryExtensions
     {
         public static string ToDisplayName(this ItemCategory category)
         {

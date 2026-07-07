@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using OfficeItemRentalApp.Models;
 using OfficeItemRentalApp.Services;
 
-namespace OfficeItemRentalApp.ConsoleUI
+namespace OfficeItemRentalApp.CLI.ConsoleUI
 {
     public sealed class ItemRentalConsoleApp
     {

@@ -2,7 +2,7 @@ using System;
 using System.Globalization;
 using OfficeItemRentalApp.Models;
 
-namespace OfficeItemRentalApp.ConsoleUI
+namespace OfficeItemRentalApp.CLI.ConsoleUI
 {
     public static class ConsoleInput
     {

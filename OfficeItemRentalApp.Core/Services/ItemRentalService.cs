@@ -54,7 +54,7 @@ namespace OfficeItemRentalApp.Services
             }
 
             database.Rentals.Add(new RentalRecord(
-                Guid.NewGuid().ToString("N"),
+                CreateNextRecordId(),
                 item.Id,
                 borrowerName,
                 rentalDate,
@@ -118,6 +118,8 @@ namespace OfficeItemRentalApp.Services
 
         public IReadOnlyList<BorrowerRentalItem> GetCurrentRentalsByBorrower(string borrowerKeyword, DateTime today)
         {
+            borrowerKeyword = borrowerKeyword ?? string.Empty;
+
             return database.Rentals
                 .Where(rental => !rental.ReturnDate.HasValue)
                 .Where(rental => rental.BorrowerName.IndexOf(borrowerKeyword, StringComparison.OrdinalIgnoreCase) >= 0)
@@ -139,11 +141,39 @@ namespace OfficeItemRentalApp.Services
 
             var histories = database.Rentals
                 .Where(rental => string.Equals(rental.ItemId, item.Id, StringComparison.OrdinalIgnoreCase))
-                .OrderByDescending(rental => rental.RentalDate)
+                .OrderByDescending(rental => GetRecordNumber(rental.RecordId))
+                .ThenByDescending(rental => rental.RentalDate)
                 .ThenByDescending(rental => rental.DueDate)
                 .ToList();
 
             return new ItemHistoryResult(ItemHistoryStatus.Success, item, histories);
+        }
+
+        private string CreateNextRecordId()
+        {
+            var maxNumber = 0;
+
+            foreach (var rental in database.Rentals)
+            {
+                var number = GetRecordNumber(rental.RecordId);
+                if (number > maxNumber)
+                {
+                    maxNumber = number;
+                }
+            }
+
+            return FormatRecordId(maxNumber + 1);
+        }
+
+        private static string FormatRecordId(int number)
+        {
+            return number.ToString();
+        }
+
+        private static int GetRecordNumber(string recordId)
+        {
+            int number;
+            return int.TryParse(recordId, out number) ? number : 0;
         }
 
         private static bool IsOverdue(RentalRecord rental, DateTime today)

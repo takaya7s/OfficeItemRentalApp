@@ -1,7 +1,7 @@
 using System;
 using System.Globalization;
 
-namespace OfficeItemRentalApp.ConsoleUI
+namespace OfficeItemRentalApp.CLI.ConsoleUI
 {
     internal static class DisplayFormatter
     {
