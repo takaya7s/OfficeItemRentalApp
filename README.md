@@ -62,16 +62,6 @@ GUI版の exe は通常、以下に生成されます。
 .\OfficeItemRentalApp\bin\Debug\net48\OfficeItemRentalApp.exe
 ```
 
-## WinFormsデザイナーについて
-
-`MainForm` は、Visual Studio のデザイナーで安全に開きやすいように、標準のWinForms生成に近い構成へ分離しています。
-
-- `MainForm.cs`: 業務処理、イベントハンドラ、表示更新処理
-- `MainForm.Designer.cs`: コントロール生成、配置、プロパティ設定、イベント接続
-- `MainForm.resx`: デザイナー用リソース
-
-`InitializeComponent()` 内には、匿名デリゲート、ラムダ式、動的な座標計算、独自の画面生成メソッド呼び出しを置かない方針です。
-
 ## GUI版の実装機能
 
 ### 備品一覧
@@ -104,7 +94,6 @@ GUI版の exe は通常、以下に生成されます。
 - 備品IDごとの貸出履歴表示
 - 備品ID欄は Enter キーでも履歴表示可能
 - 返却済み / 貸出中の履歴状態を表示
-- 貸出記録IDは `1`, `2`, `3` のような純粋な連番数値で採番
 - 備品別貸出履歴は新しい記録を上に表示
 
 ## 保存先
